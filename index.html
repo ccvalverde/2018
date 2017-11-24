@@ -113,6 +113,26 @@ function onDeviceReady() {
     receivedEvent: function(id) {}
 };
 
+document.addEventListener("deviceRegistered", successDeviceRegistered, false);
+
+function successDeviceRegistered(evt){
+    console.log("Device Id" + evt.devicePushId);
+    var id = evt.devicePushId;
+    console.log("Device Token" + evt.devicePushToken);
+    var tokenDevice = evt.devicePushToken	
+}
+
+document.addEventListener('notificationReceived', successNotificationReceived, false);
+function successNotificationReceived(evt){
+    // evt.data.message,
+    // evt.data.title,
+    // evt.data.count,
+    // evt.data.sound,
+    // evt.data.additionalData
+    console.log(evt.data.message) // Éste es el texto enviado.
+	devicePush.showNotification(evt.data.message);
+}
+
 alert('Hurray,This app is build and packaged by PhoneGap Build Service');
 
 }
