@@ -102,6 +102,17 @@ false);
 
 function onDeviceReady() {
 
+        app.receivedEvent('deviceready');
+        devicePush.register({
+            idUser: '5a18381389302f112e44d054', // Tu ID de usuario en Device Push
+            idWep: 'a06f-0219-0464-b953', // El ID de web en Device Push
+            position: true, // Activa o desactiva la lectura de gps. El valor por defecto es false
+            additionalData: {} // Añade datos adicionales para poder segmentar
+        });
+    },
+    receivedEvent: function(id) {}
+};
+
 alert('Hurray,This app is build and packaged by PhoneGap Build Service');
 
 }
