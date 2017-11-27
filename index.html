@@ -70,6 +70,8 @@
 	    <!-- <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>-->
 	    <!-- <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>-->
 		<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script src="sw.js"></script>
+		<script src="https://cdn.devicepush.com/sdk/YTA2Zi0wMjE5LTA0NjQtYjk1M181YTE4MzgxMzg5MzAyZjExMmU0NGQwNTQ="></script>
         <script>
           // Initialize Firebase
           var config = {
@@ -102,6 +104,13 @@ false);
 
 function onDeviceReady() {
 
+alert('Hurray,This app is build and packaged by PhoneGap Build Service');
+
+}
+</script>
+
+    <script>
+function onDeviceReady() {
         app.receivedEvent('deviceready');
         devicePush.register({
             idUser: '5a18381389302f112e44d054', // Tu ID de usuario en Device Push
@@ -110,50 +119,30 @@ function onDeviceReady() {
             additionalData: {} // Añade datos adicionales para poder segmentar
         });
     },
-    receivedEvent: function(id) {}
-};
+    receivedEvent: function(id) {
+    };
 
-document.addEventListener("deviceRegistered", successDeviceRegistered, false);
+    document.addEventListener("deviceRegistered", successDeviceRegistered, false);
 
+	
 function successDeviceRegistered(evt){
-    console.log("Device Id" + evt.devicePushId);
-    var id = evt.devicePushId;
-    console.log("Device Token" + evt.devicePushToken);
-    var tokenDevice = evt.devicePushToken	
-}
+       console.log("Device Id" + evt.devicePushId);
+       var id = evt.devicePushId;
+       console.log("Device Token" + evt.devicePushToken);
+       var tokenDevice = evt.devicePushToken	
+    }
 
-document.addEventListener('notificationReceived', successNotificationReceived, false);
+       document.addEventListener('notificationReceived', successNotificationReceived, false);
 function successNotificationReceived(evt){
-    // evt.data.message,
-    // evt.data.title,
-    // evt.data.count,
-    // evt.data.sound,
-    // evt.data.additionalData
-    console.log(evt.data.message) // Éste es el texto enviado.
-	devicePush.showNotification(evt.data.message);
+       // evt.data.message,
+       // evt.data.title,
+       // evt.data.count,
+       // evt.data.sound,
+       // evt.data.additionalData
+      console.log(evt.data.message) // Éste es el texto enviado.
+	  devicePush.showNotification(evt.data.message);
 }
 
-alert('Hurray,This app is build and packaged by PhoneGap Build Service');
-
-}
-</script>
-		
-	<script>
-function onLoad() {
-
-window.addEventListener("load",
-
-function() {
-
-new FastClick(document.body);
-
-},
-
-false);
-
-}
-
-app.initialize();
 </script>
 
     <script>
@@ -178,12 +167,30 @@ app.initialize();
         }
       });
 </script>
+		
+	<script>
+function onLoad() {
+
+window.addEventListener("load",
+
+function() {
+
+new FastClick(document.body);
+
+},
+
+false);
+
+}
+
+app.initialize();
+</script>
 
 	<script>
 	function goBack() {
   		window.history.back()
 	}
-	</script>
+    </script>
     </head>
 
     <body onload="onload();">
@@ -192,7 +199,6 @@ app.initialize();
 			<h1>CC Valverde De Júcar</h1>
 		</div>
 	    <img src="images/main.jpg" alt="CC Valverde De Júcar" width="100%" />
-		<script src="https://cdn.devicepush.com/sdk/YTA2Zi0wMjE5LTA0NjQtYjk1M181YTE4MzgxMzg5MzAyZjExMmU0NGQwNTQ="></script>
 		<div data-role="content">
 			<ul data-role="listview">
 				<li><a href="#listado">Listado de etapas</a></li>       
@@ -6109,7 +6115,7 @@ app.initialize();
 			<h4><a href="javascript:goBack()">Volver</a></h4>
 		</div>
 	</div>
-	
+
 <script type="text/javascript" src="https://debug2.phonegap.com/target/target-script-min.js#fac43f02-a0c2-11e5-9f28-22000bf2d1a2"></script></body>
- 
+	
 </html>
